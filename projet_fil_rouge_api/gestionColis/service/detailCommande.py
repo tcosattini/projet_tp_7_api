@@ -10,14 +10,14 @@ def getAll():
         response.append(obj)
     return {"response":response}    
  except: 
-    return {'détails commandes non trouvées'}  
+     raise HTTPException(status_code=404, detail="Commandes non trouvées")
 
 def create(validateObject):
  try:   
     newDetailCommande =  TDtlcode.objects.create(**validateObject.dict())
     return {"nouveau détail commande":newDetailCommande}
  except:
-    return {'impossible de créer ce détail de commande'}
+       raise HTTPException(status_code=500, detail="Impossible de créer cette commande")
 
 def update(id_dtl_commande,validateObject):
  try:

@@ -33,4 +33,27 @@ class DetailCommande(BaseModel):
   qte: int
   colis: int
   commentaire: Optional[str] = None
-  
+
+class Utilisateur(BaseModel):
+  nom_utilisateur: Optional[str] = None
+  prenom_utilisateur: Optional[str] = None
+  couleur_fond_utilisateur: Optional[int] = None
+  date_cde_utilisateur: Optional[str] = None
+  is_superuser: bool
+  code_role_id: Optional[int] = None
+  username : str
+  password : str
+
+class PoidsCommande(BaseModel):
+  valmin: float
+  valtimbre: Optional[float] = None
+
+class PoidsVignette(BaseModel):
+  valmin: float
+  valtimbre: Optional[float] = None  
+
+class Conditionnement(BaseModel):
+  libcondit: str
+  poidscondit: int
+  prixcond: float
+  ordreimp: int

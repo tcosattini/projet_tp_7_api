@@ -104,10 +104,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fromagerie_com',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'thibault',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '8889',
     }
 }
 

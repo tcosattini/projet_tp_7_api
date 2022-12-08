@@ -80,3 +80,53 @@ class TObjet(models.Model):
     class Meta:
         managed = False
         db_table = 't_objet'
+
+class TRole(models.Model):
+    code_role = models.AutoField(primary_key=True)
+    lib_role = models.CharField(max_length=50)
+
+    class Meta:
+        managed = False
+        db_table = 't_role'
+
+class TUtilisateur(models.Model):
+    code_utilisateur = models.AutoField(primary_key=True)
+    nom_utilisateur = models.CharField(max_length=50, blank=True, null=True)
+    prenom_utilisateur = models.CharField(max_length=50, blank=True, null=True)
+    couleur_fond_utilisateur = models.IntegerField(blank=True, null=True)
+    date_cde_utilisateur = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.BooleanField(blank=True, null=True, default=False)
+    code_role = models.ForeignKey(TRole, models.DO_NOTHING, db_column='code_role', blank=True, null=True)
+    username = models.CharField(max_length=15)
+    password = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 't_utilisateur'
+        
+class TPoids(models.Model):
+    valmin = models.AutoField(primary_key=True,db_column='valmin')
+    valtimbre = models.DecimalField( blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 't_poids'
+
+class TPoidsV(models.Model):
+    valmin = models.AutoField(primary_key=True,db_column='valmin')
+    valtimbre = models.DecimalField( blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 't_poidsv'
+
+class TConditionnement(models.Model):
+    idcondit = models.AutoField(primary_key=True)
+    libcondit = models.CharField(max_length=50, blank=True, null=True)
+    poidscondit = models.IntegerField(blank=True, null=True)
+    prixcond = models.DecimalField(max_digits=19, decimal_places=4, blank=True, null=True)
+    ordreimp = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 't_conditionnement'

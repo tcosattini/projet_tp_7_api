@@ -5,8 +5,9 @@ from gestionStock.schema import *
 
 router = APIRouter(
     prefix="/produit",
-    tags=["produitRouter"],
+    tags=["produit"],
     responses={404: {"description": "Not found"}},
+    
 )
 
 @router.get("/")

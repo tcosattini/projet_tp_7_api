@@ -1,11 +1,13 @@
 from ..service import commande, detailCommande
-from fastapi import APIRouter
+from fastapi import APIRouter,Depends
 from gestionColis.schema import *
+from authentification.middleware.authentificationMiddleware import *
 
 router = APIRouter(
     prefix="/commande",
-    tags=["commandeRouter"],
+    tags=["commande"],
     responses={404: {"description": "Not found"}},
+    dependencies= [Depends (validate_token)]
 )
 
 @router.get("/")

@@ -1,11 +1,13 @@
 from ..service import client
-from fastapi import APIRouter
+from fastapi import APIRouter,Depends
 from gestionColis.schema import *
+from authentification.middleware.authentificationMiddleware import *
 
 router = APIRouter(
     prefix="/client",
-    tags=["clientRouter"],
+    tags=["client"],
     responses={404: {"description": "Not found"}},
+    dependencies= [Depends (validate_token)]
 )
 
 @router.get("/")

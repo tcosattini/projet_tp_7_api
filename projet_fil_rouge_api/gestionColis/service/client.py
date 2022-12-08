@@ -2,7 +2,6 @@ from ..models import TClient
 from django.core import serializers
 from fastapi import HTTPException
 
-
 def getAll():
  try:    
     response =[]
@@ -16,7 +15,6 @@ def getAll():
 def create(validateObject):
  try:   
     newClient =  TClient.objects.create(**validateObject.dict())
-    print(newClient)
     return {"nouveau client":newClient}
  except:
     raise HTTPException(status_code=426, detail="Impossible de créer ce client")

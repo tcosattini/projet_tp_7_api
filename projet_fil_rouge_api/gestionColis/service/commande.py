@@ -22,7 +22,6 @@ def create(validateObject):
 
 def update(codcde,validateObject):
  try:
-    # Lever exception si detail commande non trouvée
    findSelectedCommande = TEntcde.objects.get(codcde=codcde)
    selectedCommande = TEntcde.objects.filter(codcde=codcde).update(**validateObject.dict())
    findUpdatedCommande = TEntcde.objects.get(codcde=codcde)
