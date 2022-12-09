@@ -1,11 +1,9 @@
-Tailwind documentation :
-
-https://django-tailwind.readthedocs.io/en/latest/installation.html
-
-Build project with
+launch server with :
 
 ```
-python3 manage.py tailwind start
+uvicorn mainApi:app --reload
 ```
 
-Change you DB config in settings.py
+Swagger docs on :
+
+http://localhost:{your_port}/docs
