@@ -43,6 +43,8 @@ class Utilisateur(BaseModel):
   code_role_id: Optional[int] = None
   username : str
   password : str
+  role : list
+
 
 class PoidsCommande(BaseModel):
   valmin: float

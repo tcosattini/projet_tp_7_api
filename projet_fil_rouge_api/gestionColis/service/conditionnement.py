@@ -21,7 +21,6 @@ def create(validateObject):
 
 def update(idcondit,validateObject):
  try:
-   
    findSelectedConditionnement = TConditionnement.objects.get(idcondit=idcondit)
    selectedConditionnement = TConditionnement.objects.filter(idcondit=idcondit).update(**validateObject.dict())
    findUpdatedConditionnement = TConditionnement.objects.get(idcondit=idcondit)

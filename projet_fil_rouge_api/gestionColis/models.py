@@ -99,6 +99,7 @@ class TUtilisateur(models.Model):
     code_role = models.ForeignKey(TRole, models.DO_NOTHING, db_column='code_role', blank=True, null=True)
     username = models.CharField(max_length=15)
     password = models.CharField(max_length=255)
+    role = models.JSONField()
 
     class Meta:
         managed = False

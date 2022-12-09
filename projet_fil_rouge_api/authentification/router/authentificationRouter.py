@@ -9,6 +9,5 @@ router = APIRouter(
 )
 
 @router.post("/",status_code=200)
-
 def loginCheck(validateObject: User):    
     return login.get_access_token(validateObject)

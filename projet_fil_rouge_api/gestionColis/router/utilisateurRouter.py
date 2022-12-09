@@ -4,12 +4,15 @@ from authentification.middleware.authentificationMiddleware import *
 from gestionColis.schema import *
 
 
+
 router = APIRouter(
     prefix="/utilisateur",
     tags=["utilisateur"],
     responses={404: {"description": "Not found"}},
     dependencies= [Depends (validate_token)]
+    
 )
+
 
 @router.get("/")
 def getAllUtilisateur():    
