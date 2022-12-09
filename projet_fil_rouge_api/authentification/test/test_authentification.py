@@ -7,7 +7,6 @@ client = TestClient(app)
 # Failure test case
 def test_login_without_body():
     response = client.post("/login")
-    print(response)
     assert response.status_code == 422
 
 # Failure test case
