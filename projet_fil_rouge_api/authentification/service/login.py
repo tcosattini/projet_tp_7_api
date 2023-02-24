@@ -25,6 +25,6 @@ def get_access_token (validateObject) :
   try:
    user = authenticate_user(validateObject.username, validateObject.password)
    token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
-   return {"token" : token }
+   return {"access_token" : token, "token_type" :'Bearer' }
   except Exception as exception :
     raise exception

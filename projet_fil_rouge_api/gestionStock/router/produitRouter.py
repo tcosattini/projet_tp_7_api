@@ -1,12 +1,14 @@
 from ..service import produit
-from fastapi import FastAPI, APIRouter
+from fastapi import APIRouter,Depends
 from gestionStock.schema import *
+from authentification.middleware.authentificationMiddleware import *
 
 
 router = APIRouter(
     prefix="/produit",
     tags=["produit"],
     responses={404: {"description": "Not found"}},
+    dependencies= [Depends (validate_token)]
     
 )
 

@@ -1,5 +1,5 @@
 from ..service import poidsVignette
-from fastapi import APIRouter,Depends,Security
+from fastapi import APIRouter,Depends
 from gestionColis.schema import *
 from authentification.middleware.authentificationMiddleware import *
 

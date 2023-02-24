@@ -1,6 +1,7 @@
 from ..service import login
-from fastapi import APIRouter
+from fastapi import APIRouter,Depends
 from ..schema import *
+
 
 router = APIRouter(
     prefix="/login",
@@ -9,5 +10,6 @@ router = APIRouter(
 )
 
 @router.post("/",status_code=200)
-def loginCheck(validateObject: User):    
+
+def loginCheck(validateObject: User):
     return login.get_access_token(validateObject)

@@ -9,6 +9,7 @@ router = APIRouter(
     tags=["poidsCommande"],
     responses={404: {"description": "Not found"}},
     dependencies= [Depends (validate_token)]
+    
 )
 
 @router.get("/")

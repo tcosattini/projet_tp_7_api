@@ -17,6 +17,10 @@ def getAllCommande():
 @router.post("/",status_code=201)
 def createCommande(validateObject: Commande):
     return commande.create(validateObject)
+
+@router.get("/client/{codecli}")
+def getRelatedCommandeClient(codecli):
+    return commande.getRelatedCommandeClient(codecli)    
             
 @router.put("/{codcde}")
 def updateCommande(validateObject: Commande,codcde):

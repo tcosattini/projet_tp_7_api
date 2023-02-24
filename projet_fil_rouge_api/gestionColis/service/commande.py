@@ -11,6 +11,17 @@ def getAll():
  except:
     raise HTTPException(status_code=404, detail="Commandes non trouvées")
 
+def getRelatedCommandeClient(codcli):
+ try:
+    response =[]
+    commandes = TEntcde.objects.filter(codcli=codcli)
+
+    for command in commandes :
+      response.append(command)
+    return {"response":response}  
+ except:
+    raise HTTPException(status_code=404, detail="Client non trouvé")
+
 
 def create(validateObject):
  try:   
@@ -18,6 +29,14 @@ def create(validateObject):
     return {"nouvelle commande":newCommande}
  except:
     raise HTTPException(status_code=404, detail="Commandes non trouvées")
+    
+def delete(codcde):
+ try:
+   findSelectedDetailCommande = TEntcde.objects.get(codcde=codcde)
+   selectedCommande = TEntcde.objects.filter(codcde=codcde).delete()
+   return {"commande supprimée avec succés"}
+ except:
+    raise HTTPException(status_code=404, detail="Commande non trouvée")
 
 
 def update(codcde,validateObject):
@@ -29,11 +48,3 @@ def update(codcde,validateObject):
  except:
     raise HTTPException(status_code=404, detail="Commande non trouvée")
 
-
-def delete(codcde):
- try:
-   findSelectedDetailCommande = TEntcde.objects.get(codcde=codcde)
-   selectedCommande = TEntcde.objects.filter(codcde=codcde).delete()
-   return {"commande supprimée avec succés"}
- except:
-    raise HTTPException(status_code=404, detail="Commande non trouvée")
