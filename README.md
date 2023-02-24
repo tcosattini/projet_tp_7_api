@@ -1,6 +1,7 @@
 launch server with :
 
 ```
+cd projet_fil_rouge_api
 uvicorn mainApi:app --reload
 ```
 
