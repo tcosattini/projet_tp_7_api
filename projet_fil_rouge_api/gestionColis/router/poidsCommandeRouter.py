@@ -8,7 +8,7 @@ router = APIRouter(
     prefix="/poidscommande",
     tags=["poidsCommande"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]
+    # dependencies= [Depends (validate_token)]
     
 )
 
