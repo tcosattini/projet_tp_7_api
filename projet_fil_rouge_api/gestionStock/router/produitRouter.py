@@ -2,7 +2,7 @@ from ..service import produit
 from fastapi import APIRouter,Depends
 from gestionStock.schema import *
 from authentification.middleware.authentificationMiddleware import *
-from fastapi_pagination import Page, add_pagination, paginate
+
 
 
 router = APIRouter(
