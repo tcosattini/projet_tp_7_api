@@ -11,8 +11,9 @@ router = APIRouter(
 )
 
 @router.get("/")
-def getAllClient():
-   return client.getAll()
+# Paginates with 10 items per pages
+def getAllClient(page):
+   return client.getAll(page)
 
 @router.post("/",status_code=201)
 def createClient(validateObject: Client):

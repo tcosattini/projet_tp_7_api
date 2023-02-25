@@ -11,8 +11,9 @@ router = APIRouter(
 )
 
 @router.get("/")
-def getAllCommande():
-   return commande.getAll()
+# Paginates with 10 items per pages
+def getAllCommande(page):
+   return commande.getAll(page)
 
 @router.post("/",status_code=201)
 def createCommande(validateObject: Commande):

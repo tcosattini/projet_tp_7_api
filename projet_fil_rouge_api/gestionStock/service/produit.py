@@ -1,16 +1,17 @@
-from django.core import serializers
 from ..models import TObjet
+from django.core.paginator import Paginator
 
 
-def getAll():
+def getAll(page):
  try: 
     response =[]
-    serializers.deserialize("json", TObjet.objects.all())
-    for obj in TObjet.objects.all():
+    productsFound = TObjet.objects.all()
+    p = Paginator(productsFound, 10)
+    for obj in p.page(page):
         response.append(obj)
     return {"response":response}
  except: 
-    return {'produits non trouvés'}     
+    return {'produits non trouvés'}   
 
 def create(validateObject): 
  try:       

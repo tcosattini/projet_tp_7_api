@@ -1,12 +1,14 @@
 from ..models import TClient
 from django.core import serializers
 from fastapi import HTTPException
+from django.core.paginator import Paginator
 
-def getAll():
+def getAll(page):
  try:    
     response =[]
-    serializers.deserialize("json", TClient.objects.all())
-    for obj in TClient.objects.all():
+    clientsFound = TClient.objects.all()
+    c= Paginator(clientsFound,10)
+    for obj in c.page(page):
         response.append(obj)
     return {"response":response}
  except: 

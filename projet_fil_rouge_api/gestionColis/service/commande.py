@@ -1,11 +1,12 @@
 from ..models import TEntcde
-from django.core import serializers
 from fastapi import HTTPException
-def getAll():
+from django.core.paginator import Paginator
+def getAll(page):
  try:    
     response =[]
-    serializers.deserialize("json", TEntcde.objects.all())
-    for obj in TEntcde.objects.all():
+    commandesFound = TEntcde.objects.all()
+    c = Paginator(commandesFound, 10)
+    for obj in c.page(page):
         response.append(obj)
     return {"response":response}
  except:

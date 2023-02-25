@@ -2,19 +2,20 @@ from ..service import produit
 from fastapi import APIRouter,Depends
 from gestionStock.schema import *
 from authentification.middleware.authentificationMiddleware import *
+from fastapi_pagination import Page, add_pagination, paginate
 
 
 router = APIRouter(
     prefix="/produit",
     tags=["produit"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]
-    
+    # dependencies= [Depends (validate_token)]    
 )
 
 @router.get("/")
-def getAllProduit():
-   return produit.getAll()
+# Paginate with 10 items per pages
+def getAllProduit(page):
+   return produit.getAll(page)
 
 @router.post("/")
 def createProduit(validateObject: Produit):
