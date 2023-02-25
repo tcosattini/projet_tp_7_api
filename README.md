@@ -8,6 +8,7 @@ pymysql
 tailwind
 django_browser_reload
 "python-jose[cryptography]"
+passlib
 ```
 
 launch server with :
