@@ -1,3 +1,15 @@
+Install pip dependecies : 
+
+```
+django
+uvicorn
+fastapi
+pymysql
+tailwind
+django_browser_reload
+"python-jose[cryptography]"
+```
+
 launch server with :
 
 ```
@@ -14,3 +26,6 @@ launch tests with :
 ```
 pytest
 ```
+
+
+
