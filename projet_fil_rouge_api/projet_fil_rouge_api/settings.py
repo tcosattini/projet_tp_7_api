@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-from django.conf import settings
+from .env import MYSQL_CONFIG
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -100,15 +100,18 @@ WSGI_APPLICATION = 'projet_fil_rouge_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+# in an env file in this directory ad the variable bellow and set it to your mysql config
+# MYSQL_CONFIG = {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': 'database',
+#     'USER': 'user',
+#     'PASSWORD': 'password',
+#     'HOST': 'localhost',
+#     'PORT': '0000',
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fromagerie',
-        'USER': 'fromagerie',
-        'PASSWORD': 'fromagerie',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': MYSQL_CONFIG
 }
 
 
