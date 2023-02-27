@@ -10,7 +10,7 @@ services:
     container_name: fromagerie_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: fromagerie
+      MYSQL_DATABASE: fromagerie_com
       MYSQL_USER: fromagerie
       MYSQL_PASSWORD: fromagerie
 
