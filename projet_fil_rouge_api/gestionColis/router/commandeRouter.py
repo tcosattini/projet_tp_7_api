@@ -7,16 +7,21 @@ router = APIRouter(
     prefix="/commande",
     tags=["commande"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]
+    # dependencies= [Depends (validate_token)]
 )
 
 @router.get("/")
-def getAllCommande():
-   return commande.getAll()
+# Paginates with 10 items per pages
+def getAllCommande(page):
+   return commande.getAll(page)
 
 @router.post("/",status_code=201)
 def createCommande(validateObject: Commande):
     return commande.create(validateObject)
+
+@router.get("/client/{codecli}")
+def getRelatedCommandeClient(codecli):
+    return commande.getRelatedCommandeClient(codecli)    
             
 @router.put("/{codcde}")
 def updateCommande(validateObject: Commande,codcde):

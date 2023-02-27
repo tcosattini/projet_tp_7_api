@@ -5,7 +5,8 @@ from gestionColis.router import clientRouter, commandeRouter, utilisateurRouter,
 from authentification.router import authentificationRouter
 
 
-app = FastAPI()
+app = FastAPI(title="Projet TP 7",
+        description="Groupe Lead dev")
 
 app.include_router(produitRouter.router)
 app.include_router(clientRouter.router)

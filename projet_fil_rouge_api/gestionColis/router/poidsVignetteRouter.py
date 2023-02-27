@@ -1,5 +1,5 @@
 from ..service import poidsVignette
-from fastapi import APIRouter,Depends,Security
+from fastapi import APIRouter,Depends
 from gestionColis.schema import *
 from authentification.middleware.authentificationMiddleware import *
 
@@ -7,7 +7,7 @@ router = APIRouter(
     prefix="/poidsvignette",
     tags=["poidsVignette"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]   
+    # dependencies= [Depends (validate_token)]   
 )
 
 @router.get("/")

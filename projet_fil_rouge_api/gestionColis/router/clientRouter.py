@@ -7,12 +7,13 @@ router = APIRouter(
     prefix="/client",
     tags=["client"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]
+    # dependencies= [Depends (validate_token)]
 )
 
 @router.get("/")
-def getAllClient():
-   return client.getAll()
+# Paginates with 10 items per pages
+def getAllClient(page):
+   return client.getAll(page)
 
 @router.post("/",status_code=201)
 def createClient(validateObject: Client):

@@ -9,7 +9,7 @@ router = APIRouter(
     prefix="/utilisateur",
     tags=["utilisateur"],
     responses={404: {"description": "Not found"}},
-    dependencies= [Depends (validate_token)]
+    # dependencies= [Depends (validate_token)]
     
 )
 
