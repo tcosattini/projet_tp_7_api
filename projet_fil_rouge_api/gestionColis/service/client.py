@@ -12,7 +12,7 @@ def getAll(page):
         response.append(obj)
     return {"response":response}
  except: 
-    return {'clients non trouvés'}  
+   raise HTTPException(status_code=404, detail="Clients non trouvés")  
 
 def create(validateObject):
  try:   
