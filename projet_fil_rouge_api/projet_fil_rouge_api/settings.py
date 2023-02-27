@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
-from django.conf import settings
 
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'gestionUtilisateurs',
     'tailwind',
     'theme',
-    'django_browser_reload',    
-    ]
+    'django_browser_reload',
+]
 
 
 AUTH_USER_MODEL = 'authentification.TUtilisateur'
@@ -90,7 +90,7 @@ TEMPLATES = [
 
 
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, 'authentification/static')
+    os.path.join(BASE_DIR, 'authentification/static')
 ]
 
 
@@ -103,15 +103,13 @@ WSGI_APPLICATION = 'projet_fil_rouge_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fromagerie_com',
-        'USER': 'thibault',
-        'PASSWORD': 'password',
+        'NAME': 'fromagerie',
+        'USER': 'fromagerie',
+        'PASSWORD': 'fromagerie',
         'HOST': 'localhost',
-        'PORT': '8889',
+        'PORT': '3306',
     }
 }
-
-
 
 
 # Password validation
@@ -154,4 +152,3 @@ LOGIN_URL = '/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

@@ -1,5 +1,5 @@
 # to use open terminal in this directory :
-# start command : docker compose up -d
+# start command : docker compose up -d --remove-orphans
 # stop command : docker compose down
 
 version: "init"
@@ -7,14 +7,18 @@ version: "init"
 services:
   fromagerie_com_db:
     image: mysql:latest
-    container_name: fromagerie_com_db
+    container_name: fromagerie_db
     environment:
-      MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: fromagerie_com
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fromagerie
+      MYSQL_USER: fromagerie
+      MYSQL_PASSWORD: fromagerie
+
     ports:
       - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
+      - "./fromagerie.sql:/docker-entrypoint-initdb.d/fromagerie.sql"
 
 volumes:
   dbdata:
