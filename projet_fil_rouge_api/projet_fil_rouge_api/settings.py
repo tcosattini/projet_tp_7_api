@@ -111,6 +111,7 @@ WSGI_APPLICATION = 'projet_fil_rouge_api.wsgi.application'
 #     'PORT': '0000',
 # }
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fromagerie_com',
@@ -119,6 +120,9 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '8889',
     }
+=======
+    'default': MYSQL_CONFIG
+>>>>>>> 0cf2e3b2ebde9681b8359d819d1d23526f2e70c8
 }
 
 

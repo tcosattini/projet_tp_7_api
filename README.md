@@ -1,6 +1,6 @@
 # API projet FROMAGERIE.com
 
-## required
+## Required
 
 - django
 - uvicorn
@@ -8,43 +8,46 @@
 - pymysql
 - tailwind
 - django_browser_reload
-- "python-jose[cryptography]"
+- python-jose[cryptography]
 - passlib
 
 ## Install pip dependecies
+
+- in your terminal (inside the folder [projet_fil_rouge_api](https://github.com/tcosattini/projet_tp_7_api/tree/main/projet_fil_rouge_api)) :
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## customize you database settings
+## Customize you database settings
 
-add an env.py file in the projet_fil_rouge_api (next to settings.py)
-then add the variable bellow and set it to your mysql config
+create an env.py file in the folder [projet_fil_rouge_api](https://github.com/tcosattini/projet_tp_7_api/tree/main/projet_fil_rouge_api) (next to settings.py)
+then add into env.py the variable bellow and set it to your mysql config
 
 ```python
 MYSQL_CONFIG = {
-    'ENGINE': 'django.db.backends.mysql',
-     'NAME': 'database',
-     'USER': 'user',
-     'PASSWORD': 'password',
-     'HOST': 'localhost',
-     'PORT': '0000',
- }
+  'ENGINE': 'django.db.backends.mysql',
+  'NAME': 'fromagerie_com',
+  'USER': 'root',
+  'PASSWORD': '',
+  'HOST': 'localhost',
+  'PORT': '3306',
+}
 ```
 
-## launch server with
+## Launch server with
+
+- in your terminal (inside the folder [projet_fil_rouge_api](https://github.com/tcosattini/projet_tp_7_api/tree/main/projet_fil_rouge_api)) :
 
 ```bash
-cd projet_fil_rouge_api
 uvicorn mainApi:app --reload
 ```
 
-Swagger docs on :
+- Swagger docs on :
 
 <http://localhost:{your_port}/docs>
 
-launch tests with :
+- launch tests with :
 
 ```bash
 pytest

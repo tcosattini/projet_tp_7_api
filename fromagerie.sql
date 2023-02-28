@@ -551,7 +551,7 @@ CREATE TABLE `t_role` (
   `code_role` int NOT NULL AUTO_INCREMENT,
   `lib_role` varchar(50) NOT NULL,
   PRIMARY KEY (`code_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
