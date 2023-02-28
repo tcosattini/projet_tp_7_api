@@ -15,6 +15,11 @@ router = APIRouter(
 def getAllCommande(page):
    return commande.getAll(page)
 
+
+@router.get("/{codcde}")
+def getById(codcde):
+   return commande.getById(codcde)
+
 @router.post("/",status_code=201)
 def createCommande(validateObject: Commande):
     return commande.create(validateObject)

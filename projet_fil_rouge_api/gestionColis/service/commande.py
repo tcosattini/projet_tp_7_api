@@ -1,6 +1,32 @@
-from ..models import TEntcde
+from ..models import TEntcde,TDtlcode,TObjet
 from fastapi import HTTPException
 from django.core.paginator import Paginator
+
+def getById(codcde):
+ try:    
+    response =[]
+    dtlCommandes = []
+    commandesList = []
+    dtlObjet = []
+    command = TEntcde.objects.get(codcde=codcde)
+   
+    relatedDetailCommandes = TDtlcode.objects.filter(codcde=command.codcde)
+    for relatedDetailCommande in relatedDetailCommandes :
+        dtlCommandes.append(relatedDetailCommande)
+        setattr(command,"details",dtlCommandes)
+        relatedProduits = TObjet.objects.filter(codobj= getattr(relatedDetailCommande,"codobj_id"))
+        for relatedProduit in relatedProduits:
+          dtlObjet.append(relatedProduit)
+          setattr(relatedDetailCommande,"produit",relatedProduit)
+        dtlObjet = []
+    dtlCommandes =[]           
+    commandesList.append(command) 
+
+    return {"response":command}
+ except:
+    raise HTTPException(status_code=404, detail="Commandes non trouvées")
+
+
 def getAll(page):
  try:    
     response =[]
@@ -14,12 +40,23 @@ def getAll(page):
 
 def getRelatedCommandeClient(codcli):
  try:
-    response =[]
+    commandesList = []
+    dtlCommandes = []
+    dtlObjet = []
     commandes = TEntcde.objects.filter(codcli=codcli)
-
     for command in commandes :
-      response.append(command)
-    return {"response":response}  
+      relatedDetailCommandes = TDtlcode.objects.filter(codcde=command.codcde)
+      for relatedDetailCommande in relatedDetailCommandes :
+        dtlCommandes.append(relatedDetailCommande)
+        setattr(command,"details",dtlCommandes)
+        relatedProduits = TObjet.objects.filter(codobj= getattr(relatedDetailCommande,"codobj_id"))
+        for relatedProduit in relatedProduits:
+          dtlObjet.append(relatedProduit)
+          setattr(relatedDetailCommande,"produit",relatedProduit)
+        dtlObjet = []
+      dtlCommandes =[]           
+      commandesList.append(command) 
+    return {"response":commandesList}  
  except:
     raise HTTPException(status_code=404, detail="Client non trouvé")
 

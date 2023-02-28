@@ -5,7 +5,6 @@ from fastapi import HTTPException
 def getAll():
  try:    
     response =[]
-    serializers.deserialize("json", TDtlcode.objects.all())    
     for obj in TDtlcode.objects.all():
         response.append(obj)
     return {"response":response}    
